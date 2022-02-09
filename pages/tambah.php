@@ -44,7 +44,7 @@ if (isset($_POST['kirim'])) {
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="../index.php">Beranda</a>
+            <a class="nav-link" aria-current="page" href="../index.php">Beranda</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="../index.php#tentang">Tentang</a>
@@ -59,7 +59,7 @@ if (isset($_POST['kirim'])) {
             <a class="nav-link" href="../index.php#anggota">Anggota</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btn btn-success" href="tambah.php">Tambah Data</a>
+            <a class="nav-link btn btn-success active" href="tambah.php">Tambah Data</a>
           </li>
         </ul>
       </div>

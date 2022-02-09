@@ -36,16 +36,16 @@ $anggota = query("SELECT * FROM anggota");
             <a class="nav-link active" aria-current="page" href="index.php">Beranda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#tentang">Tentang</a>
+            <a class="nav-link active" href="#tentang">Tentang</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#visimisi">Visi & Misi</a>
+            <a class="nav-link active" href="#visimisi">Visi & Misi</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#struktur">Struktur Organisasi</a>
+            <a class="nav-link active" href="#struktur">Struktur Organisasi</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#anggota">Anggota</a>
+            <a class="nav-link active" href="#anggota">Anggota</a>
           </li>
           <li class="nav-item">
             <a class="nav-link btn btn-success" href="pages/tambah.php">Tambah Data</a>
@@ -75,8 +75,8 @@ $anggota = query("SELECT * FROM anggota");
                 <th scope="col">#</th>
                 <th scope="col">Nama</th>
                 <th scope="col">Status</th>
+                <th scope="col">Detail</th>
                 <th scope="col">Aksi</th>
-                <th scope="col">Hapus</th>
               </tr>
             </thead>
             <tbody>
@@ -87,10 +87,10 @@ $anggota = query("SELECT * FROM anggota");
                 <td><?= $a['nama'] ?></td>
                 <td><?= $a['statuss'] ?></td>
                 <td>
-                  <a href="pages/detail.php?id=<?= $a['id']; ?>" class="btn btn-primary">Detail</a>
-                  <a href="pages/ubah.php?id=<?= $a['id']; ?>" class="btn btn-info">Ubah</a>
+                  <a href="pages/detail.php?id=<?= $a['id']; ?>" class="btn btn-primary">Lihat</a>
                 </td>
                 <td>
+                  <a href="pages/ubah.php?id=<?= $a['id']; ?>" class="btn btn-info">Ubah</a>
                   <a href="pages/hapus.php?id=<?= $a['id'] ?>" class="btn btn-danger">Hapus</a>
                 </td>
               </tr>
