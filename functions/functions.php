@@ -25,7 +25,10 @@ function tambah($data) {
   $prodi = htmlspecialchars($data['prodi']);
   $semester = htmlspecialchars($data['semester']);
   $whatsapp = htmlspecialchars($data['whatsapp']);
-  $foto = htmlspecialchars($data['foto']);
+  $foto = uploud();
+  if( !$foto ) {
+    return false;
+  }
 
   $query = "INSERT INTO anggota VALUES 
     ('', '$nama', '$status', '$nim', '$prodi', '$semester', '$whatsapp', '$foto')
@@ -36,6 +39,48 @@ function tambah($data) {
   return mysqli_affected_rows($koneksi);
 
 }
+
+function uploud() {
+
+  $namaFoto = $_FILES['foto']['name'];
+  $ukuranFoto = $_FILES['foto']['size'];
+  $error = $_FILES['foto']['error'];
+  $tmpName = $_FILES['foto']['tmp_name'];
+
+  if( $error === 4 ) {
+    echo "<script>
+        alert('Silahkan pilih foto!');
+        </script>";
+    return false;
+  }
+
+  $validasi = ['jpg', 'jpeg', 'png'];
+  $ekstensi = explode('.', $namaFoto);
+  $ekstensi = strtolower(end($ekstensi));
+  if( !in_array($ekstensi, $validasi) ) {
+    echo "<script>
+        alert('File bukan foto!');
+        </script>";
+    return false;
+  }
+
+  if( $ukuranFoto > 2500000 ) {
+    echo "<script>
+        alert('Ukuran foto maksimal 2.5MB!');
+        </script>";
+    return false;
+  }
+
+  $fotoBaru = uniqid();
+  $fotoBaru .= '.';
+  $fotoBaru .= $ekstensi;
+
+  move_uploaded_file($tmpName, '../img/' . $fotoBaru);
+
+  return $fotoBaru;
+
+}
+
 
 function hapus($id) {
 
@@ -58,7 +103,10 @@ function ubah($data) {
   $prodi = htmlspecialchars($data['prodi']);
   $semester = htmlspecialchars($data['semester']);
   $whatsapp = htmlspecialchars($data['whatsapp']);
-  $foto = htmlspecialchars($data['foto']);
+  $foto = uploud();
+  if( !$foto ) {
+    return false;
+  }
 
   $query = "UPDATE anggota SET 
     nama = '$nama',

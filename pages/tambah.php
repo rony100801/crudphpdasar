@@ -69,7 +69,7 @@ if (isset($_POST['kirim'])) {
 
   <!-- TAMBAH DATA -->
   <section id="tambah">
-    <div class="container mt-5 pt-4">
+    <div class="container mt-5 pt-4 mb-5">
 
       <div class="row">
         <div class="col text-center">
@@ -80,7 +80,7 @@ if (isset($_POST['kirim'])) {
       <div class="row d-flex">
         <div class="col-md-5 mx-auto">
 
-          <form method="POST">
+          <form method="POST" enctype="multipart/form-data">
 
             <div class="mb-3">
               <label for="nama" class="form-label">Nama Lengkap</label>
@@ -135,7 +135,7 @@ if (isset($_POST['kirim'])) {
 
             <div class="mb-3">
               <label for="foto" class="form-label">Foto</label>
-              <input type="nama" class="form-control" id="foto" name="foto">
+              <input type="file" class="form-control" id="foto" name="foto">
             </div>
 
 
