@@ -46,5 +46,32 @@ function hapus($id) {
 
 }
 
+function ubah($data) {
+
+  global $koneksi;
+
+  $id = $data['id'];
+  $nama = htmlspecialchars($data['nama']);
+  $nim = htmlspecialchars($data['nim']);
+  $prodi = htmlspecialchars($data['prodi']);
+  $semester = htmlspecialchars($data['semester']);
+  $whatsapp = htmlspecialchars($data['whatsapp']);
+  $foto = htmlspecialchars($data['foto']);
+
+  $query = "UPDATE anggota SET 
+    nama = '$nama',
+    nim = '$nim',
+    prodi = '$prodi',
+    semester = '$semester',
+    whatsapp = '$whatsapp',
+    foto = '$foto' WHERE id = $id
+  ";
+
+  mysqli_query($koneksi, $query);
+
+  return mysqli_affected_rows($koneksi);
+
+}
+
 
 ?>

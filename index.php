@@ -88,7 +88,7 @@ $anggota = query("SELECT * FROM anggota");
                 <td><?= $a['prodi'] ?></td>
                 <td>
                   <a href="pages/detail.php?id=<?= $a['id']; ?>" class="btn btn-primary">Detail</a>
-                  <a href="" class="btn btn-info">Ubah</a>
+                  <a href="pages/ubah.php?id=<?= $a['id']; ?>" class="btn btn-info">Ubah</a>
                 </td>
                 <td>
                   <a href="pages/hapus.php?id=<?= $a['id'] ?>" class="btn btn-danger">Hapus</a>
