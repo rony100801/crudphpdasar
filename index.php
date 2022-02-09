@@ -96,6 +96,10 @@ $anggota = query("SELECT * FROM anggota");
               </tr>
           <?php $no++; ?>
           <?php endforeach; ?>
+              <tr class="bg-dark text-light">
+                <th colspan="4" class="text-end">Jumlah Anggota</th>
+                <th><?= $no - 1; ?></th>
+              </tr>
             </tbody>
           </table>
 
