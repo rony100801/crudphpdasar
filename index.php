@@ -36,19 +36,19 @@ $anggota = query("SELECT * FROM anggota");
             <a class="nav-link active" aria-current="page" href="#">Beranda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Tentang</a>
+            <a class="nav-link" href="#tentang">Tentang</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Visi & Misi</a>
+            <a class="nav-link" href="#visimisi">Visi & Misi</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Struktur Organisasi</a>
+            <a class="nav-link" href="#struktur">Struktur Organisasi</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Anggota</a>
+            <a class="nav-link" href="#anggota">Anggota</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btn btn-success" href="">Tambah Data</a>
+            <a class="nav-link btn btn-success" href="pages/tambah.php">Tambah Data</a>
           </li>
         </ul>
       </div>
