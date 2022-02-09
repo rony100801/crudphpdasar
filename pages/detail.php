@@ -1,8 +1,11 @@
-<?php  
+<?php
 
-require 'functions/functions.php';
+require '../functions/functions.php';
 
-$anggota = query("SELECT * FROM anggota");
+$id = $_GET['id'];
+
+$anggota = query("SELECT * FROM anggota WHERE id = $id")[0];
+
 
 
 ?>
@@ -26,29 +29,29 @@ $anggota = query("SELECT * FROM anggota");
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Web Learning Community</a>
+      <a class="navbar-brand" href="../index.php">Web Learning Community</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+            <a class="nav-link active" aria-current="page" href="../index.php">Beranda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#tentang">Tentang</a>
+            <a class="nav-link" href="../index.php#tentang">Tentang</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#visimisi">Visi & Misi</a>
+            <a class="nav-link" href="../index.php#visimisi">Visi & Misi</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#struktur">Struktur Organisasi</a>
+            <a class="nav-link" href="../index.php#struktur">Struktur Organisasi</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#anggota">Anggota</a>
+            <a class="nav-link" href="../index.php#anggota">Anggota</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btn btn-success" href="pages/tambah.php">Tambah Data</a>
+            <a class="nav-link btn btn-success" href="tambah.php">Tambah Data</a>
           </li>
         </ul>
       </div>
@@ -56,55 +59,39 @@ $anggota = query("SELECT * FROM anggota");
   </nav>
   <!-- AKHIR NAVBAR -->
 
-  <!-- ANGGOTA -->
-  <section id="anggota" class="mt-5 pt-4">
-    <div class="container">
+  <!-- DETAIL -->
+  <section id="tambah">
+    <div class="container mt-5 pt-4">
 
       <div class="row">
         <div class="col text-center">
-          <h2 class="display-6">Daftar Anggota Welcome</h2>
+          <h2 class="display-6">Detail Rony Setiawan</h2>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col">
+      <div class="row mt-4">
+        <div class="col-md-4 mx-auto">
 
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nama</th>
-                <th scope="col">Prodi</th>
-                <th scope="col">Aksi</th>
-                <th scope="col">Hapus</th>
-              </tr>
-            </thead>
-            <tbody>
-          <?php $no = 1; ?>
-          <?php foreach($anggota as $a) : ?>
-              <tr>
-                <th scope="row"><?= $no; ?></th>
-                <td><?= $a['nama'] ?></td>
-                <td><?= $a['prodi'] ?></td>
-                <td>
-                  <a href="pages/detail.php?id=<?= $a['id']; ?>" class="btn btn-primary">Detail</a>
-                  <a href="" class="btn btn-info">Ubah</a>
-                </td>
-                <td>
-                  <a href="pages/hapus.php?id=<?= $a['id'] ?>" class="btn btn-danger">Hapus</a>
-                </td>
-              </tr>
-          <?php $no++; ?>
-          <?php endforeach; ?>
-            </tbody>
-          </table>
+          <div class="card">
+            <img src="../img/<?= $anggota["foto"] ?>" class="card-img-top" alt="<?= $anggota["foto"] ?>" height="300">
+            <div class="card-body">
+              <h5 class="card-title"><?= $anggota["nama"] ?></h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><?= $anggota["prodi"] ?></li>
+              <li class="list-group-item"><?= $anggota["nim"] ?></li>
+              <li class="list-group-item">Semester <?= $anggota["semester"] ?></li>
+              <li class="list-group-item"><?= $anggota["whatsapp"] ?></li>
+            </ul>
+          </div>
 
         </div>
       </div>
+
 
     </div>
   </section>
-  <!-- AKHIR ANGGOTA -->
+  <!-- AKHIR DETAIL -->
 
 
   <!-- FOOTER -->
