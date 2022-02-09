@@ -1,8 +1,19 @@
 <?php
 
-// require 'functions/functions.php';
+require '../functions/functions.php';
 
-// $anggota = query("SELECT * FROM anggota");
+if (isset($_POST['kirim'])) {
+  if (tambah($_POST) > 0) {
+    echo "<script>
+          confirm('Data Berhasil Ditambah ! Tambah Lagi ?') ? document.location.href = 'tambah.php' : document.location.href = '../index.php';
+        </script>";
+  } else {
+    echo "<script>
+          alert('Data Gagal Ditambahkan!');
+          document.location.href = 'tambah.php';
+        </script>";
+  }
+}
 
 
 ?>
@@ -69,7 +80,7 @@
       <div class="row d-flex">
         <div class="col-md-5 mx-auto">
 
-          <form>
+          <form method="POST">
 
             <div class="mb-3">
               <label for="nama" class="form-label">Nama Lengkap</label>
@@ -97,7 +108,7 @@
               <!-- <label class="input-group-text" for="inputGroupSelect01">Semester</label> -->
               <select class="form-select" id="inputGroupSelect01" name="semester" required autocomplete="off">
                 <option selected>Semester...</option>
-                <?php for($i = 1; $i <= 8; $i++): ?>
+                <?php for ($i = 1; $i <= 8; $i++) : ?>
                   <option value="<?= $i ?>"><?= $i; ?></option>
                 <?php endfor; ?>
               </select>
