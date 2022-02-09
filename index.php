@@ -1,3 +1,12 @@
+<?php  
+
+require 'functions/functions.php';
+
+$anggota = query("SELECT * FROM anggota");
+
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -71,10 +80,12 @@
               </tr>
             </thead>
             <tbody>
+          <?php $no = 1; ?>
+          <?php foreach($anggota as $a) : ?>
               <tr>
-                <th scope="row">1</th>
-                <td>Rony Setiawan</td>
-                <td>Teknologi Informasi</td>
+                <th scope="row"><?= $no; ?></th>
+                <td><?= $a['nama'] ?></td>
+                <td><?= $a['prodi'] ?></td>
                 <td>
                   <a href="" class="btn btn-primary">Detail</a>
                   <a href="" class="btn btn-info">Ubah</a>
@@ -83,6 +94,8 @@
                   <a href="" class="btn btn-danger">Hapus</a>
                 </td>
               </tr>
+          <?php $no++; ?>
+          <?php endforeach; ?>
             </tbody>
           </table>
 
