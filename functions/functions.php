@@ -19,15 +19,16 @@ function tambah($data) {
 
   global $koneksi;
 
-  $nama = htmlspecialchars($data['nama']);
-  $nim = htmlspecialchars($data['nim']);
+  $nama = ucfirst(htmlspecialchars($data['nama']));
+  $status = htmlspecialchars($data['status']);
+  $nim = strtoupper(htmlspecialchars($data['nim']));
   $prodi = htmlspecialchars($data['prodi']);
   $semester = htmlspecialchars($data['semester']);
   $whatsapp = htmlspecialchars($data['whatsapp']);
   $foto = htmlspecialchars($data['foto']);
 
   $query = "INSERT INTO anggota VALUES 
-    ('', '$nama', '$nim', '$prodi', '$semester', '$whatsapp', '$foto')
+    ('', '$nama', '$status', '$nim', '$prodi', '$semester', '$whatsapp', '$foto')
   ";
 
   mysqli_query($koneksi, $query);
@@ -51,8 +52,9 @@ function ubah($data) {
   global $koneksi;
 
   $id = $data['id'];
-  $nama = htmlspecialchars($data['nama']);
-  $nim = htmlspecialchars($data['nim']);
+  $nama = ucfirst(htmlspecialchars($data['nama']));
+  $status = htmlspecialchars($data['status']);
+  $nim = strtoupper(htmlspecialchars($data['nim']));
   $prodi = htmlspecialchars($data['prodi']);
   $semester = htmlspecialchars($data['semester']);
   $whatsapp = htmlspecialchars($data['whatsapp']);
@@ -60,6 +62,7 @@ function ubah($data) {
 
   $query = "UPDATE anggota SET 
     nama = '$nama',
+    statuss = '$status',
     nim = '$nim',
     prodi = '$prodi',
     semester = '$semester',

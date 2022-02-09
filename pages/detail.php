@@ -61,7 +61,7 @@ $anggota = query("SELECT * FROM anggota WHERE id = $id")[0];
 
   <!-- DETAIL -->
   <section id="tambah">
-    <div class="container mt-5 pt-4">
+    <div class="container mt-5 pt-4 mb-5">
 
       <div class="row">
         <div class="col text-center">
@@ -76,6 +76,7 @@ $anggota = query("SELECT * FROM anggota WHERE id = $id")[0];
             <img src="../img/<?= $anggota["foto"] ?>" class="card-img-top" alt="<?= $anggota["foto"] ?>" height="300">
             <div class="card-body">
               <h5 class="card-title"><?= $anggota["nama"] ?></h5>
+              <h5 class="card-title">Sebagai <?= $anggota["statuss"] ?></h5>
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item"><?= $anggota["prodi"] ?></li>

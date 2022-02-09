@@ -88,6 +88,19 @@ if (isset($_POST['kirim'])) {
               <div id="emailHelp" class="form-text">Silahkan memasukkan nama lengkap anda.</div>
             </div>
 
+            <div class="input-group mb-3">
+              <!-- <label class="input-group-text" for="inputGroupSelect01">Program Studi</label> -->
+              <select class="form-select" id="inputGroupSelect01" name="status" required autocomplete="off">
+                <option selected>Status...</option>
+                <option value="Ketua">Ketua</option>
+                <option value="Wakil Ketua">Wakil Ketua</option>
+                <option value="Sekretaris">Sekretaris</option>
+                <option value="Wakil Sekretaris">Wakil Sekretaris</option>
+                <option value="Bendahara">Bendahara</option>
+                <option value="Anggota">Anggota</option>
+              </select>
+            </div>
+
             <div class="mb-3">
               <label for="nim" class="form-label">NIM</label>
               <input type="nama" class="form-control" id="nim" name="nim" required autocomplete="off">

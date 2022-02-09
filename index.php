@@ -71,10 +71,10 @@ $anggota = query("SELECT * FROM anggota");
 
           <table class="table">
             <thead>
-              <tr>
+              <tr class="bg-dark text-light">
                 <th scope="col">#</th>
                 <th scope="col">Nama</th>
-                <th scope="col">Prodi</th>
+                <th scope="col">Status</th>
                 <th scope="col">Aksi</th>
                 <th scope="col">Hapus</th>
               </tr>
@@ -85,7 +85,7 @@ $anggota = query("SELECT * FROM anggota");
               <tr>
                 <th scope="row"><?= $no; ?></th>
                 <td><?= $a['nama'] ?></td>
-                <td><?= $a['prodi'] ?></td>
+                <td><?= $a['statuss'] ?></td>
                 <td>
                   <a href="pages/detail.php?id=<?= $a['id']; ?>" class="btn btn-primary">Detail</a>
                   <a href="pages/ubah.php?id=<?= $a['id']; ?>" class="btn btn-info">Ubah</a>
