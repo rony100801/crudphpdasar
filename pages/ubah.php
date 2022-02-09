@@ -14,7 +14,7 @@ if (isset($_POST['kirim'])) {
   } else {
     echo "<script>
           alert('Data Gagal Ditambahkan!');
-          document.location.href = 'tambah.php';
+          document.location.href = '../index.php';
         </script>";
   }
 }
@@ -87,6 +87,7 @@ if (isset($_POST['kirim'])) {
           <form method="POST" enctype="multipart/form-data">
 
           <input type="hidden" value="<?= $id ?>" name="id">
+          <input type="hidden" value="<?= $anggota['foto'] ?>" name="fotoLama">
 
             <div class="mb-3">
               <label for="nama" class="form-label">Nama Lengkap</label>
@@ -141,7 +142,7 @@ if (isset($_POST['kirim'])) {
 
             <div class="mb-3">
               <label for="foto" class="form-label">Foto</label>
-              <input type="file" class="form-control" id="foto" name="foto""><br>
+              <input type="file" class="form-control" id="foto" name="foto" value="<?= $anggota['foto'] ?>"><br>
               <img src="../img/<?= $anggota['foto'] ?>" alt="<?= $anggota['foto'] ?>" width="80">
             </div>
 

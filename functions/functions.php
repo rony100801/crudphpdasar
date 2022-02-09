@@ -103,9 +103,12 @@ function ubah($data) {
   $prodi = htmlspecialchars($data['prodi']);
   $semester = htmlspecialchars($data['semester']);
   $whatsapp = htmlspecialchars($data['whatsapp']);
-  $foto = uploud();
-  if( !$foto ) {
-    return false;
+  $fotoLama = htmlspecialchars($data['fotoLama']);
+  
+  if( $_FILES['foto']['error'] === 4 ) {
+    $foto = $fotoLama;
+  } else {
+    $foto = uploud();
   }
 
   $query = "UPDATE anggota SET 
