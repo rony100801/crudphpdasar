@@ -37,29 +37,29 @@ if (isset($_POST['kirim'])) {
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Web Learning Community</a>
+      <a class="navbar-brand" href="../index.php">Web Learning Community</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+            <a class="nav-link active" aria-current="page" href="../index.php">Beranda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Tentang</a>
+            <a class="nav-link" href="../index.php#tentang">Tentang</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Visi & Misi</a>
+            <a class="nav-link" href="../index.php#visimisi">Visi & Misi</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Struktur Organisasi</a>
+            <a class="nav-link" href="../index.php#struktur">Struktur Organisasi</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Anggota</a>
+            <a class="nav-link" href="../index.php#anggota">Anggota</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btn btn-success" href="">Tambah Data</a>
+            <a class="nav-link btn btn-success" href="tambah.php">Tambah Data</a>
           </li>
         </ul>
       </div>

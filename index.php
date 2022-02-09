@@ -91,7 +91,7 @@ $anggota = query("SELECT * FROM anggota");
                   <a href="" class="btn btn-info">Ubah</a>
                 </td>
                 <td>
-                  <a href="" class="btn btn-danger">Hapus</a>
+                  <a href="pages/hapus.php?id=<?= $a['id'] ?>" class="btn btn-danger">Hapus</a>
                 </td>
               </tr>
           <?php $no++; ?>

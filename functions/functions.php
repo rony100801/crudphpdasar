@@ -36,5 +36,15 @@ function tambah($data) {
 
 }
 
+function hapus($id) {
+
+  global $koneksi;
+
+  mysqli_query($koneksi, "DELETE FROM anggota WHERE id = $id");
+
+  return mysqli_affected_rows($koneksi);
+
+}
+
 
 ?>
