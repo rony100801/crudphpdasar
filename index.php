@@ -1,4 +1,10 @@
-<?php  
+<?php
+session_start();
+
+if( !isset($_SESSION['login']) ) {
+  header("Location: login/login.php");
+  exit;
+}
 
 require 'functions/functions.php';
 
@@ -49,6 +55,9 @@ $anggota = query("SELECT * FROM anggota");
           </li>
           <li class="nav-item">
             <a class="nav-link btn btn-success" href="pages/tambah.php">Tambah Data</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-danger ms-2" href="login/logout.php">Logout</a>
           </li>
         </ul>
       </div>

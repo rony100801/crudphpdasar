@@ -12,7 +12,7 @@ function register($data) {
   $pass = mysqli_real_escape_string($koneksi, $data['pass']);
   $pass2 = mysqli_real_escape_string($koneksi, $data['pass2']);
 
-  if( strlen($username) <= 8 ) {
+  if( strlen($username) < 8 ) {
     echo "<script>
           alert('Username harus lebih dari 8 karakter!');
         </script>";

@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if( isset($_SESSION['login']) ) {
+  header("Location: ../index.php");
+  exit;
+}
 
 require '../functions/functions.php';
 
@@ -12,6 +18,7 @@ if( isset($_POST['submit']) ) {
   if ($row = mysqli_fetch_assoc($result)) {
 
     if (password_verify($password, $row['password'])) {
+      $_SESSION['login'] = true;
       header("Location: ../index.php");
       exit;
     }
@@ -43,6 +50,12 @@ if( isset($_POST['submit']) ) {
     <div class="row">
       <div class="col">
         <h2>LOGIN</h2>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col">
+        <a href="register.php" class="btn btn-success">Register</a>
       </div>
     </div>
 

@@ -7,6 +7,7 @@ if( isset($_POST['submit']) ) {
   if( register($_POST) > 0 ) {
     echo "<script>
           alert('Berhasil Register!');
+          document.location.href = 'login.php';
         </script>";
   } else {
     mysqli_error($koneksi);
@@ -36,6 +37,12 @@ if( isset($_POST['submit']) ) {
     <div class="row">
       <div class="col">
         <h2>REGISTRASI</h2>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col">
+        <a href="login.php" class="btn btn-success">Login</a>
       </div>
     </div>
 
