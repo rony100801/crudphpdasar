@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if( !isset($_SESSION['login']) ) {
+if( !isset($_SESSION['admin']) ) {
   header("Location: login/login.php");
   exit;
 }
@@ -64,6 +64,18 @@ $anggota = query("SELECT * FROM anggota");
     </div>
   </nav>
   <!-- AKHIR NAVBAR -->
+
+  <!-- HELLO -->
+  <section id="hello">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h2 class="display-6">Hello</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- AKHIR HELLO -->
 
   <!-- ANGGOTA -->
   <section id="anggota" class="mt-5 pt-4">

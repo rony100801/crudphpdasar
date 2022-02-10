@@ -1,9 +1,14 @@
 <?php
 session_start();
 
-if( isset($_SESSION['login']) ) {
-  header("Location: ../index.php");
-  exit;
+if( isset($_SESSION['admin']) || isset($_SESSION['user']) ) {
+  if( $_SESSION['admin'] ) {
+    header("Location: ../index.php");
+    exit;
+  } else if($_SESSION['user']) {
+    header("Location: ../user.php");
+    exit;
+  }
 }
 
 require '../functions/functions.php';
@@ -18,9 +23,18 @@ if( isset($_POST['submit']) ) {
   if ($row = mysqli_fetch_assoc($result)) {
 
     if (password_verify($password, $row['password'])) {
-      $_SESSION['login'] = true;
-      header("Location: ../index.php");
-      exit;
+      
+      if( $username === 'admin100801' ) {
+        $_SESSION['admin'] = true;
+        header("Location: ../index.php");
+        exit;
+      } else {
+        $_SESSION['user'] = true;
+        header("Location: ../user.php");
+        exit;
+      }
+
+      
     }
   }
   $err = true;
