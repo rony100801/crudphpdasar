@@ -1,4 +1,15 @@
-<?php  
+<?php
+session_start();
+
+if( isset($_SESSION['admin']) || isset($_SESSION['user']) ) {
+  if( $_SESSION['admin'] ) {
+    header("Location: ../index.php");
+    exit;
+  } else if($_SESSION['user']) {
+    header("Location: ../user.php");
+    exit;
+  }
+}
 
 require '../functions/functions.php';
 

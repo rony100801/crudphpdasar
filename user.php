@@ -92,7 +92,7 @@ $anggota = query("SELECT * FROM anggota");
                 <td><?= $a['nama'] ?></td>
                 <td><?= $a['statuss'] ?></td>
                 <td>
-                  <a href="pages/detail.php?id=<?= $a['id']; ?>" class="btn btn-primary">Lihat</a>
+                  <a href="pages/detailuser.php?id=<?= $a['id']; ?>" class="btn btn-primary">Lihat</a>
                 </td>
               </tr>
           <?php $no++; ?>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if( !isset($_SESSION['admin']) ) {
+if( !isset($_SESSION['user']) ) {
   header("Location: login/login.php");
   exit;
 }
@@ -55,9 +55,6 @@ $anggota = query("SELECT * FROM anggota WHERE id = $id")[0];
           </li>
           <li class="nav-item">
             <a class="nav-link" href="../index.php#anggota">Anggota</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link btn btn-success" href="tambah.php">Tambah Data</a>
           </li>
           <li class="nav-item">
             <a class="nav-link btn btn-danger ms-2" href="login/logout.php">Logout</a>
