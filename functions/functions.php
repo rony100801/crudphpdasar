@@ -6,7 +6,7 @@ function register($data) {
 
   global $koneksi;
 
-  $username = ucfirst(htmlspecialchars($data['username']));
+  $username = strtolower(htmlspecialchars($data['username']));
   $nim = strtoupper($data['nim']);
   $email = htmlspecialchars($data['email']);
   $pass = mysqli_real_escape_string($koneksi, $data['pass']);
