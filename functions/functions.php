@@ -2,6 +2,48 @@
 
 $koneksi = mysqli_connect('localhost', 'root', '', 'welcome');
 
+function register($data) {
+
+  global $koneksi;
+
+  $username = ucfirst(htmlspecialchars($data['username']));
+  $nim = strtoupper($data['nim']);
+  $email = htmlspecialchars($data['email']);
+  $pass = mysqli_real_escape_string($koneksi, $data['pass']);
+  $pass2 = mysqli_real_escape_string($koneksi, $data['pass2']);
+
+  if( strlen($username) <= 8 ) {
+    echo "<script>
+          alert('Username harus lebih dari 8 karakter!');
+        </script>";
+    return false;
+  }
+
+  $result = mysqli_query($koneksi, "SELECT username FROM users WHERE username = '$username'");
+  if( mysqli_fetch_assoc($result) ) {
+    echo "<script>
+          alert('Username sudah ada!');
+        </script>";
+    return false;
+  }
+
+  if( $pass !== $pass2 ) {
+    echo "<script>
+          alert('Password Tidak Sama!');
+        </script>";
+    return false;
+  }
+
+  $pass = password_hash($pass, PASSWORD_DEFAULT);
+
+  mysqli_query($koneksi, "INSERT INTO users VALUES
+    ('', '$username', '$nim', '$email', '$pass');
+  ");
+
+  return mysqli_affected_rows($koneksi);
+
+}
+
 function query($query) {
 
   global $koneksi;
@@ -126,6 +168,3 @@ function ubah($data) {
   return mysqli_affected_rows($koneksi);
 
 }
-
-
-?>
